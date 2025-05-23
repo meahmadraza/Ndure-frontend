@@ -6,7 +6,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 export default function ImageCarousel({ images }) {
     return (
         <Carousel showThumbs={false} infiniteLoop autoPlay swipeable emulateTouch>
-            {images.length > 1 ? (
+            {images.length > 1 && (
                 images.slice(1).map((img, i) => (
                     <div key={i} className="relative w-full aspect-square">
                         <Image
@@ -18,15 +18,6 @@ export default function ImageCarousel({ images }) {
                         />
                     </div>
                 ))
-            ) : (
-                <div className="relative w-full aspect-square overflow-hidden">
-                    <Image
-                        src="/placeholder.png"
-                        alt="No images available"
-                        fill
-                        className="object-cover"
-                    />
-                </div>
             )}
         </Carousel>
 

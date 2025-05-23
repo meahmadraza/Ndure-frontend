@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['localhost'], // allow images from your local Strapi server
+        domains: ['striking-miracle-75163e8551.media.strapiapp.com'], // correct domain
     },
 };
 

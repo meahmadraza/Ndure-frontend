@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 112, "column": 0}, "map": {"version":3,"sources":["file:///F:/Advance%20web/Ndure%20Clone/Frontend/src/app/page.js"],"sourcesContent":["import axios from 'axios'\nimport { ProductCard } from '../../../components/ProductCard'\nimport Header from '../../../components/Header'\n\nasync function getProducts() {\n  const res = await axios.get('https://striking-miracle-75163e8551.strapiapp.com/api/products?populate=*')\n  return res.data.data\n}\n\nexport default async function HomePage() {\n  const products = await getProducts()\n\n  return (\n    <>\n      <Header />\n      <div className='lg:px-6'>\n        <div className=\"grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 p-4\">\n          {products.map((p) => (\n            <ProductCard\n              key={p.id}\n              product={{ ...p, images: p.images || [] }}\n            />\n          ))}\n        </div>\n      </div>\n    </>\n  )\n}\n"],"names":[],"mappings":";;;;AAAA;;;;;;;;;;;;;;;AAIA,eAAe;IACb,MAAM,MAAM,MAAM,qIAAA,CAAA,UAAK,CAAC,GAAG,CAAC;IAC5B,OAAO,IAAI,IAAI,CAAC,IAAI;AACtB;AAEe,eAAe;IAC5B,MAAM,WAAW,MAAM;IAEvB,qBACE;;0BACE,8OAAC;;;;;0BACD,8OAAC;gBAAI,WAAU;0BACb,cAAA,8OAAC;oBAAI,WAAU;8BACZ,SAAS,GAAG,CAAC,CAAC,kBACb,8OAAC;4BAEC,SAAS;gCAAE,GAAG,CAAC;gCAAE,QAAQ,EAAE,MAAM,IAAI,EAAE;4BAAC;2BADnC,EAAE,EAAE;;;;;;;;;;;;;;;;;AAQvB","debugId":null}}]
+}

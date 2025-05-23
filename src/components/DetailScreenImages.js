@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 
 const DetailScreenImages = ({ images }) => {
+    console.log('DetailScreenImages images:', images)
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {images?.slice(1).map((img, index) => (

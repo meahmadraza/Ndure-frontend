@@ -1,9 +1,9 @@
 import axios from 'axios'
-import ProductCard from '../components/Productcard'
+import ProductCard from '../components/ProductCard'
 import Header from '../components/Header'
 
 async function getProducts() {
-  const res = await axios.get('http://localhost:1337/api/products?populate=*')
+  const res = await axios.get('https://striking-miracle-75163e8551.strapiapp.com/api/products?populate=*')
   console.log(res.data.data)
   return res.data.data
 }

@@ -2,11 +2,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function ProductCard({ product }) {
-    const BASE_URL = 'http://localhost:1337'
-    const imageUrl =
-        product.images?.[0]?.formats?.small?.url
+    const BASE_URL = 'https://striking-miracle-75163e8551.strapiapp.com';
+    const imageUrl = product.images?.[0]?.formats?.small?.url;
 
-    const fullImageUrl = BASE_URL + imageUrl
+    const fullImageUrl = imageUrl?.startsWith('http')
+        ? imageUrl
+        : BASE_URL + imageUrl;
+
+
+
     return (
         <Link href={`/products/${product.slug}`} className="block group overflow-hidden">
             <div className="relative w-full aspect-square overflow-hidden">
@@ -19,7 +23,7 @@ export default function ProductCard({ product }) {
             </div>
 
             <div className="flex flex-col gap-1 py-2">
-                <img src={fullImageUrl} className='w-10' />
+                <img src={fullImageUrl} className="w-10" />
                 <h3 className="text-sm font-semibold pt-2">
                     {product.title}
                 </h3>
@@ -28,7 +32,6 @@ export default function ProductCard({ product }) {
                     <p className="text-sm text-black">Rs. {product.price}</p>
                 </div>
             </div>
-
         </Link>
     )
 }
