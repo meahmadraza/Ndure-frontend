@@ -1,7 +1,7 @@
 import Header from '../../../components/Header';
 import ProductCard from '../../../components/ProductCard';
 
-const BASE_URL = 'https://striking-miracle-75163e8551.strapiapp.com';
+const BASE_URL = 'https://sublime-beauty-ac64b64f48.strapiapp.com';
 
 export default async function CategoryPage({ params }) {
     const slug = params?.slug;

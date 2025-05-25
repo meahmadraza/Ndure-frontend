@@ -6,7 +6,7 @@ import ImageCarousel from '../../../components/ImageCarousel'
 import DetailScreenImages from '../../../components/DetailScreenImages'
 
 export default function ProductDetail({ params }) {
-  const BASE_URL = 'https://striking-miracle-75163e8551.strapiapp.com'
+  const BASE_URL = 'https://sublime-beauty-ac64b64f48.strapiapp.com'
   const unwrappedParams = React.use(params)
   const slug = unwrappedParams.slug
   const [product, setProduct] = useState(null)

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['striking-miracle-75163e8551.media.strapiapp.com'], // correct domain
+        domains: ['sublime-beauty-ac64b64f48.media.strapiapp.com'],
     },
 };
 

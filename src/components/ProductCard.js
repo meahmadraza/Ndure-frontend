@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function ProductCard({ product }) {
-    const BASE_URL = 'https://striking-miracle-75163e8551.strapiapp.com';
+    const BASE_URL = 'https://sublime-beauty-ac64b64f48.strapiapp.com';
     const imageUrl = product.images?.[0]?.formats?.small?.url;
 
     const fullImageUrl = imageUrl?.startsWith('http')
