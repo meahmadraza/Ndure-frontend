@@ -2,8 +2,15 @@
 
 import Header from '../components/Header'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+import Footer from '../components/Footer'
 
 export default function HomePage() {
+  const bgImages = [
+    '/Home-page-img1.webp',
+    '/Home-page-img2.webp',
+    '/Home-page-img3.webp',
+  ]
   return (
     <div>
       <div className="relative w-full h-screen overflow-hidden">
@@ -29,8 +36,20 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
+
       </div>
-      {/* Footer here */}
+      {bgImages.map((img, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: i * 0.1 }}
+          viewport={{ once: true }}
+          style={{ backgroundImage: `url(${img})` }}
+          className="w-full h-screen bg-cover bg-center bg-no-repeat"
+        />
+      ))}
+      <Footer />
     </div>
   )
 }

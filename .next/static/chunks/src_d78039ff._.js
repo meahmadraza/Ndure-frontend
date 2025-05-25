@@ -127,7 +127,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 function ProductDetail({ params }) {
     _s();
-    const BASE_URL = 'https://striking-miracle-75163e8551.strapiapp.com';
+    const BASE_URL = 'https://sublime-beauty-ac64b64f48.strapiapp.com';
     const unwrappedParams = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].use(params);
     const slug = unwrappedParams.slug;
     const [product, setProduct] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);

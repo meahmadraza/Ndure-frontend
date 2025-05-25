@@ -1,4 +1,5 @@
 import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 import ProductCard from '../../../components/ProductCard';
 
 const BASE_URL = 'https://sublime-beauty-ac64b64f48.strapiapp.com';
@@ -31,6 +32,7 @@ export default async function CategoryPage({ params }) {
                     ))}
                 </div>
             </div>
+            <Footer />
         </>
     );
 }

@@ -3,6 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ImageCarousel from '../../../components/ImageCarousel'
+import Footer from '../../../components/Footer'
 import DetailScreenImages from '../../../components/DetailScreenImages'
 
 export default function ProductDetail({ params }) {
@@ -94,6 +95,7 @@ export default function ProductDetail({ params }) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
