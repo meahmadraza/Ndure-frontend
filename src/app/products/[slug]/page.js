@@ -7,15 +7,15 @@ import Footer from '../../../components/Footer'
 import DetailScreenImages from '../../../components/DetailScreenImages'
 
 export default function ProductDetail({ params }) {
-  const BASE_URL = 'https://sublime-beauty-ac64b64f48.strapiapp.com'
-  const unwrappedParams = React.use(params)
-  const slug = unwrappedParams.slug
+  const slug = params?.slug;
   const [product, setProduct] = useState(null)
   const [selectedSize, setSelectedSize] = useState(null)
 
   useEffect(() => {
     async function fetchProduct() {
-      const res = await axios.get(`${BASE_URL}/api/products?populate=*&filters[slug][$eq]=${slug}`)
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=images&filters[slug][$eq]=${slug}`, {
+        cache: 'force-cache'
+      })
       setProduct(res.data.data[0])
     }
     fetchProduct()
@@ -23,7 +23,7 @@ export default function ProductDetail({ params }) {
 
   if (!product) return <p className="p-4">Loading...</p>
 
-  // Build full image URLs correctly
+
   const images = product?.images?.map((image) => (
     image?.formats?.small?.url
   ))
@@ -39,12 +39,10 @@ export default function ProductDetail({ params }) {
       </div>
 
       <div className="flex flex-col md:flex-row mt-5">
-        {/* DetailScreenImages - Hidden on sm/md, shown on lg+ */}
         <div className="hidden md:block md:w-7xl pr-6">
           <DetailScreenImages images={images} />
         </div>
 
-        {/* Product Details */}
         <div className="w-full lg:w-1/2">
           <h1 className="text-2xl font-bold pt-4">{product.title}</h1>
 
@@ -57,7 +55,6 @@ export default function ProductDetail({ params }) {
             </p>
           </div>
 
-          {/* Sizes */}
           <div className="flex flex-wrap gap-2 mt-4">
             {allSizes.map((size) => {
               const isAvailable = availableSizes.includes(size)
@@ -83,12 +80,10 @@ export default function ProductDetail({ params }) {
             })}
           </div>
 
-          {/* Add to Bag */}
           <button className="w-full bg-black text-white py-3 text-center font-semibold mt-6 hover:opacity-90 transition hover:cursor-pointer">
             ADD TO BAG
           </button>
 
-          {/* Description */}
           <div className="mt-6">
             <h2 className="text-lg font-semibold mb-2">Product Description</h2>
             <p className="text-gray-700 whitespace-pre-line">{product.description}</p>

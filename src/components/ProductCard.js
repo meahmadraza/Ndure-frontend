@@ -2,13 +2,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function ProductCard({ product }) {
-    const BASE_URL = 'https://sublime-beauty-ac64b64f48.strapiapp.com';
+    const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
     const imageUrl = product.images?.[0]?.formats?.small?.url;
 
     const fullImageUrl = imageUrl?.startsWith('http')
         ? imageUrl
         : BASE_URL + imageUrl;
-
 
 
     return (
@@ -18,6 +17,7 @@ export default function ProductCard({ product }) {
                     src={fullImageUrl}
                     alt={product.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                 />
             </div>

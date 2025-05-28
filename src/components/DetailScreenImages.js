@@ -8,7 +8,7 @@ const DetailScreenImages = ({ images }) => {
             {images?.slice(1).map((img, index) => (
                 <div key={index} className="relative w-full aspect-square group overflow-hidden">
                     <Image
-                        src={img}
+                        src={process.env.NEXT_PUBLIC_API_URL == 'http://localhost:1337' ? process.env.NEXT_PUBLIC_API_URL + img : img}
                         alt={`Product image ${index + 1}`}
                         fill
                         className="object-contain hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"

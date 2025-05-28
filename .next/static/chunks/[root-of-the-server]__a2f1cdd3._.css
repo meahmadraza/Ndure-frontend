@@ -843,38 +843,14 @@
   }
 
   @media (width >= 64rem) {
-    .lg\:px-20 {
-      padding-inline: calc(var(--spacing) * 20);
-    }
-  }
-
-  @media (width >= 64rem) {
     .lg\:pt-50 {
       padding-top: calc(var(--spacing) * 50);
     }
   }
 
   @media (width >= 64rem) {
-    .lg\:pt-60 {
-      padding-top: calc(var(--spacing) * 60);
-    }
-  }
-
-  @media (width >= 64rem) {
-    .lg\:pt-80 {
-      padding-top: calc(var(--spacing) * 80);
-    }
-  }
-
-  @media (width >= 64rem) {
     .lg\:pb-16 {
       padding-bottom: calc(var(--spacing) * 16);
-    }
-  }
-
-  @media (width >= 64rem) {
-    .lg\:pb-20 {
-      padding-bottom: calc(var(--spacing) * 20);
     }
   }
 

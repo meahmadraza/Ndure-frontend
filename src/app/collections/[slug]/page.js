@@ -2,12 +2,10 @@ import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import ProductCard from '../../../components/ProductCard';
 
-const BASE_URL = 'https://sublime-beauty-ac64b64f48.strapiapp.com';
-
 export default async function CategoryPage({ params }) {
     const slug = params?.slug;
 
-    const res = await fetch(`${BASE_URL}/api/products?populate=*&filters[category][name][$eq]=${slug}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=images&filters[category][name][$eq]=${slug}`);
 
     if (!res.ok) {
         throw new Error('Failed to fetch category products');
