@@ -5,7 +5,9 @@ import ProductCard from '../../../components/ProductCard';
 export default async function CategoryPage({ params }) {
     const slug = params?.slug;
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=images&filters[category][name][$eq]=${slug}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=images&filters[category][name][$eq]=${slug}`, {
+        next: { revalidate: 60 },
+    });
 
     if (!res.ok) {
         throw new Error('Failed to fetch category products');

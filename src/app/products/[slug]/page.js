@@ -6,20 +6,17 @@ import ImageCarousel from '../../../components/ImageCarousel'
 import Footer from '../../../components/Footer'
 import DetailScreenImages from '../../../components/DetailScreenImages'
 
-export default function ProductDetail({ params }) {
+export default async function ProductDetail({ params }) {
   const slug = params?.slug;
   const [product, setProduct] = useState(null)
   const [selectedSize, setSelectedSize] = useState(null)
 
-  useEffect(() => {
-    async function fetchProduct() {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=images&filters[slug][$eq]=${slug}`, {
-        cache: 'force-cache'
-      })
-      setProduct(res.data.data[0])
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=images&filters[slug][$eq]=${slug}`,
+    {
+      next: { revalidate: 60 },
     }
-    fetchProduct()
-  }, [slug])
+  );
 
   if (!product) return <p className="p-4">Loading...</p>
 
